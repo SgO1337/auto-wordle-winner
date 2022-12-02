@@ -28,8 +28,8 @@ def conseguirColor(x, y, letra, pos):
         letrasGrises(letra)
     elif(hex == '43A047'):
         #verde, segura y fixeada en la posicion
+        #letrasVerdes(letra, pos)
         letrasVerdes(letra, pos)
-        #letrasAmarillas(letra)
     else:
         return 'Error de coordenadas (blanco)'
 #Esta funcion comparte el mensaje
@@ -66,16 +66,9 @@ def letrasAmarillas(letra):
             palabras.remove(item)
 #Esta funcion fixea caracteres
 def letrasVerdes(letra, pos):
-    print('letra verde: '+letra)
-    print('pos: '+str(pos))
-    if(pos == 0):
-        for item in palabras.copy():
-            if not item.startswith(letra):
-                palabras.remove(item)
-    if(pos == 4):
-        for item in palabras.copy():
-            if not item.endswith(letra):
-                palabras.remove(item)
+    for item in palabras.copy():
+        if item[pos] != letra:
+            palabras.remove(item)
 #Esta funcion elimina las palabras que no contienen los caracteres amarillos o posibles
 def letrasGrises(letra):
     #print('letra gris: '+letra)
@@ -100,3 +93,5 @@ def juegoInicial():
         print('palabra nueva: '+palabra)
         jugar(iteracion, palabra)
 juegoInicial()
+time.sleep(2)
+enviarMensaje()
