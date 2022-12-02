@@ -1,3 +1,4 @@
+#Funciona bien pero funcionaria mejor eliminando la aleatoriedad y usando una lista de palabras ordenada por frecuencia de uso. (lineas 9 y 98 del programa en caso de querer mejorarlo)
 #Modulos que requieren instalacion mediante pip: pyautogui, Pillow (PIL)
 #La lista de palabras fue descargada desde 'https://raw.githubusercontent.com/JorgeDuenasLerin/diccionario-espanol-txt/master/0_palabras_todas.txt'
 #Primero se eliminaron los tildes y posteriormente las palabras repetidas en 'http://www.texto.kom.gt/removertildesyacentos.htm'
