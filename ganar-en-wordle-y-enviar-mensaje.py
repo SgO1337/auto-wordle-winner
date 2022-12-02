@@ -3,6 +3,7 @@ import time
 from PIL import ImageGrab
 import random
 import re
+#Se recomienda desactivar la opcion "Word Wrap" en "View" de VSCode para mejor legibilidad
 letrasPermitidas = []
 #Palabras posibles
 #español
