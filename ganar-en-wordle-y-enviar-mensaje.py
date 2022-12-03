@@ -27,7 +27,7 @@ def conseguirColor(x, y, letra, pos):
     hex = ('{:X}{:X}{:X}').format(r, g, b)
     if(hex == 'E4A81D'):
         #amarillo, posible
-        letrasAmarillas(letra)
+        letrasAmarillas(letra, pos)
     elif(hex == '757575'):
         #gris, imposible
         letrasGrises(letra)
@@ -62,13 +62,19 @@ def ingresarPalabra(palabra):
     time.sleep(1)
     pyautogui.press('backspace', presses=5)
     time.sleep(0.5)
+    for item in palabras.copy():
+        if item == palabra:
+            palabras.remove(item)
     return letras_a_ingresar
 #Esta funcion elimina las palabras con letras grises
-def letrasAmarillas(letra):
+def letrasAmarillas(letra, pos):
     letrasPermitidas.append(letra)
     #print('letra amarilla: '+letra)
     for item in palabras.copy():
         if letra not in item:
+            palabras.remove(item)
+    for item in palabras.copy():
+        if item[pos] == letra:
             palabras.remove(item)
 #Esta funcion fixea caracteres
 def letrasVerdes(letra, pos):
@@ -82,6 +88,9 @@ def letrasGrises(letra):
     for item in palabras.copy():
         if letra in item and letra not in letrasPermitidas:
             palabras.remove(item)
+    for item in letrasPermitidas.copy():
+        if letrasPermitidas == letra:
+            letrasPermitidas.remove(item)
 #Separar palabra en letras
 def separarPalabra(palabra):
     letras = list(palabra)
@@ -95,12 +104,14 @@ def jugar(iteracion, palabra):
         #print('cletrasX: '+str(coordenadasXcolores[i])+' cletrasY: '+str(coordenadasYcolores[iteracion])+'letrasI: '+letras[i])
 def juegoInicial():
     for iteracion in range(0, 6):
+        if(len(palabras) == 0):
+            return 0
         print('Numero de palabras posibles: '+str(len(palabras)))
         palabra = random.choice(palabras)
         #print(palabras)
         print('palabra nueva: '+palabra)
         if(iteracion == 0):
-            jugar(iteracion, 'ORATE')
+            jugar(iteracion, 'AUDIO')
         else:
             jugar(iteracion, palabra)
 juegoInicial()
