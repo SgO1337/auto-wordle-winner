@@ -1,5 +1,4 @@
 # ideas (ignorar): 
-# - usar operaciones algebraicas para redefinir las coordenadas dependiendo de la resolucion del monitor y la reslacion de aspecto
 # - mejorar el algoritmo de eleccion de palabras basandolo en probabilidad (letras comunes) y no en aleatoriedad
 import pyautogui
 import time
